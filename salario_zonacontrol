@@ -1,0 +1,44 @@
+// salario_zonacontrol.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+#define AFP 0.121
+#define IVA 0.13
+#define SM 1420
+#define DAC 0.01
+using namespace std;
+
+void main ()
+{float promedio,sb,sn;
+ int i=0;
+ int c=0;
+ cout<<"Ingresar el salario bruto: ";
+ cin>>sb;
+
+ while(sb != -999)
+ {
+   if(sb > (2 * SM))
+    {sn = (sb - ((sb*IVA)+(sb*AFP)));
+    
+     if(sb>15000)
+	 sn=(sn - (sb*DAC)); 
+	
+    }
+   else
+	 { sn=(sb - (sb*AFP));
+       
+     }
+   cout<<"el salario neto es: "<<sn<<endl;
+   c =  c + sn;
+   i++;
+
+   cout<<"Ingresar el salario bruto: ";
+   cin>>sb;
+ }
+ promedio = (c/i);
+ cout<<"El promedio del salario neto por"<<endl<<i<<endl<<"trabajadores es: "<<promedio<<endl;
+ getch ();
+}
