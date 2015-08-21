@@ -1,0 +1,41 @@
+// salario_preguntadecontinuacion.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "stdlib.h"
+
+#define AFP 0.121
+#define IVA 0.13
+#define SM 1420
+#define DAC 0.01
+using namespace std;
+
+void main ()
+{float promedio,sb,sn;
+ char op;
+ int i=0;
+ int c=0;
+ do{
+	 cout<<"Ingrese el salario bruto: ";
+	 cin>>sb;
+	  if(sb>(2*SM))
+	   {sn = (sb-((sb*IVA)+(sb*AFP)));
+	    if(sb>15000)
+	      sn = sn-(sb*DAC);
+	   }
+		else
+         { sn = sb -(sb*AFP);
+		 }
+	   
+	  cout<<"el salario neto es: "<<endl<<sn<<endl;
+	  c = c + sn;
+	  i++;
+	  cout<<"Desea continuar : (s)";
+	  cin>>op;
+ }while(op == 's');
+ promedio = c/i;
+ cout<<"El promedio de" <<i<< "trabajadores es: "<<promedio;
+ getch ();
+}
