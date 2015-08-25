@@ -1,0 +1,87 @@
+// menufuncion.cpp : Defines the entry point for the console application.
+// autor: claudia osorio
+// fecha : 25-08-15
+
+#include "stdafx.h"
+#include "conio.h"
+#include "math.h"
+#include <iostream>
+#include "stdlib.h"
+#define PI 3.141516
+
+using namespace std;
+
+void area_circulo(float r,float &a);
+void cuadratica(float a, float b, float c, float &x1,float &x2);
+
+
+void main ()
+{ float a,b,c,x1,x2,r;
+  int opcion;
+  do{
+  cout<<"*****MENU*****"<<endl;
+  cout<<"1. Area del Circulo"<<endl;
+  cout<<"2. Ecuacion Cuadratica"<<endl;
+  cout<<"0.-Salir"<<endl<<endl;
+
+  cout<<"Ingrese la opcion que desea: "<<endl;
+  cin>>opcion;
+
+  switch(opcion)
+  { case 1: 
+          cout<<"Ingrese el valor del radio: ";
+		  cin>>r;
+
+		  area_circulo(r,a);
+
+		  cout<<"el valor del area del circulo es: "<<a;
+		  break;
+		  
+		  
+    case 2:
+	  cout<<"Ingrese el valor de a: ";
+	  cin>>a;
+	  cout<<"Ingrese el valor de b: ";
+	  cin>>b;
+	  cout<<"Ingrese el valor de c: ";
+	  cin>>c;
+
+	  cuadratica(a,b,c,x1,x2);
+
+	  if((x1>0)&&(x2>0))
+	  {cout<<"El valor de x1: "<<x1;
+	  cout<<"El valor de x2: "<<x2;
+	  }
+	  break;
+
+   case 0:
+	  cout<<"Salir";
+	  break;
+
+   default :
+	  cout<<"Opcion invalida";
+  }
+  getch ();
+  system("cls");
+
+  }while(opcion !=0);
+  getch ();
+}
+void area_circulo(float r,float &a)
+{ 
+	a = (r*r*PI);
+}
+
+void cuadratica(float a,float b,float c,float &x1,float &x2)
+{ float z;
+
+ z=((b*b)-(4*a*c));
+ 
+ if(z>0)
+ {x1= ((-b+sqrt(z))/(2*a));
+  x2=((-b-sqrt(z))/(2*a));
+ }
+ else
+ { cout<<"ERROR"<<endl;
+ }
+}
