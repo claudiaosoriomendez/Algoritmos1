@@ -1,0 +1,43 @@
+// salario_for.cpp : Defines the entry point for the console application.
+// autor: claudia osorio
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+#define IVA 0.13
+#define AFP 0.121
+#define DAC 0.01
+#define SM 1420
+using namespace std;
+
+void main ()
+{ float sb,sn,promedio;
+  int n;
+  int c=0;
+  int i=0;
+  cout<<"Ingrese el numero de empleados que desea sacar su promedio: "<<endl;
+  cin>>n; 
+ while(i<n)
+	{
+	 cout<<"Ingrese el salario bruto del trabajador: ";
+	 cin>>sb;
+		
+	 if(sb > (2 * SM))
+      {sn = (sb - ((sb*IVA)+(sb*AFP)));
+    
+      if(sb>15000)
+	  sn=(sn - (sb*DAC)); 
+	
+      }
+    else
+	  { sn=(sb - (sb*AFP));
+      }
+	 cout<<"el salario neto del trabajador es: "<<sn<<endl;
+	 c = c+sn;
+	 i++;
+    }
+ promedio = (c/i);
+ cout<<"El promedio de"<<i<<endl<<"trabajadores es:"<<promedio<<endl;
+ getch ();
+}
