@@ -1,0 +1,138 @@
+// menuvectores.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <stdlib.h>
+#include "math.h"
+#include <string>
+#define TAM 50
+
+using namespace std;
+
+void cargar_vector(int a[], int n);
+void cargar_vectors(string nombre[],int n);
+void mostrar_vector(int a[], int n);
+//*int busqueda_binaria(int a[], int n);//
+void arrays_paralelos(string nombre[],int nota[],int n);
+void mostrar_paralelos(string nombre[],int nota,int n);
+
+void main ()
+{int op,n,sol,a,b;
+ int a[TAM];
+ string nombre[TAM];
+
+ do{
+	 cout<<"*****MENU*****"<<endl;
+	 cout<<"1. Cargar vector en numeros enteros"<<endl;
+	 cout<<"2. Cargar vector string"<<endl;
+	 cout<<"3. Mostrar vector enteros"<<endl;
+	 cout<<"4. Clasificar vector paralelos"<<endl;
+	 cout<<"5. Mostrar vector paralelos"<<endl;
+	 //cout<<"6. Busqueda Binaria"<<endl;
+	 cout<<"0. Salir"<<endl;
+	 cin>>op;
+	 switch (op)
+	 { case 1:
+	          do{
+				  cout<<"Ingrese el numero de elementos: ";
+				  cin>>n;
+
+			    }while((n>TAM)||(n<0));
+			    
+			     cargar_vector(a,n);
+				 break;
+
+	 case 2:
+		    do{
+				cout<<"Ingrese el numero de elemtos: ";
+				cin>>n;
+
+			  }while((n>TAM)||(n<0));
+
+		       cargar_vectors(nombre, n);
+			   break;
+
+     case 3:
+		    mostrar_vector(a,n);
+		    break;
+
+	 case 4:
+		 arrays_paralelos(nombre,a,n);
+		 break;
+
+	 case 5:
+		 mostrar_paralelos(nombre,a,n);
+		 break;
+
+     case 0:
+		 cout<<"Fin del programa";
+		 break;
+
+	 default: 
+		 cout<<"Opcion invalida";
+		 break;
+
+	 }
+	 getch ();
+	 system ("cls");
+ 
+ }while(op !=0);
+ getch ();
+}
+
+void cargar_vector(int a[],int n)
+{for(int i=1; i<=n;i++)
+  {cout<<"a["<<i1<<"]= ";
+   cin>>a[i];
+  } 
+}
+
+void cargar_vectors(string nombre[],int n)
+{
+	cin.ignore();
+	for(int i=1;i<=n;i++)
+    {cout<<"nombre["<<i<<"]:";
+    getline(cin,nombre[i]);
+    }
+}
+
+void mostrar_vector(in a[], int n)
+{
+	for(int i=1;i<=n;i++)
+	{
+		cout<<"a["<<i<<"]:";
+		cout<<a[i];
+	}
+}
+
+void arrays_paralelos(string nombre[],int nota, int n)
+{
+	int aux;
+	string auxs;
+	for(int i=0;i<n-1;i++)
+	 for(int j=i+1;j<n;j++)
+	   if(nombre[i] > nombre[j])
+	    {
+			aux=nota[j];
+			nota[j]=nota[i];
+			nota[i]=aux;
+			auxs=nombre[j];
+			nombre[j]=nombre[i];
+			nombre[i];aux;
+	   }
+}
+
+void mostrar_paralelas(string nombre[],int nota[],int n)
+{ 
+	cout<<"No. \t Nombre y Apellido \t Nota"<<endl;
+	cout<<"****************************************"<<endl;
+	for(int i=0;i<n;i++)
+	 cout<<i+1<<" "<<nombre[i]<<"\t"<<nota[i]<<endl;
+}
+
+
+
+
+
