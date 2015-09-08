@@ -1,0 +1,96 @@
+// practicamenu.cpp : Defines the entry point for the console application.
+// autor: claudia osorio
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+
+float cubo (float n);
+int menor_enteros (int x,int y);
+float potencia_reales(float b,float a);
+
+using namespace std;
+
+float c,m,p;
+
+void main ()
+{int opcion,x,y;
+ float n,b,a;
+
+
+ do{
+	 cout<<"*****MENU*****"<<endl;
+	 cout<<"1. Sacar el cubo de cualquier numero"<<endl;
+	 cout<<"2. El menor de dos numeros enteros"<<endl;
+	 cout<<"3. Sacar la potecia de cualquier numero"<<endl;
+	 cout<<"0. Salir"<<endl;
+	 cout<<"Escoger la opcion que prefiera"<<endl;
+	 cin>>opcion;
+
+	 switch(opcion)
+	 { case 1: 
+	     cout<<"Ingresar el numero que quiera sacar el cubo: ";
+		 cin>>n;
+
+		 c = cubo(n);
+
+		 cout<<"El cubo del numero"<<n<<endl<<"es: "<<c;
+		 break;
+	 
+	 case 2:
+		 cout<<"Ingrese el primer numero: ";
+		 cin>>x;
+		 cout<<"Ingresar el segundo numero: ";
+		 cin>>y;
+
+		 m = menor_enteros(x,y);
+
+		 cout<<"El menor de los dos numeros es: "<<m;
+		 break;
+
+	 case 3:
+		 cout<<"Ingresar la base: ";
+		 cin>>b;
+		 cout<<"Ingresar la potencia:";
+		 cin>>a;
+
+		 p = potencia_reales(b,a);
+
+		 cout<<"El valor de la potencia es: "<<p;
+		 break;
+
+	 }
+	 getch();
+	 system ("cls");
+
+ }while(opcion !=0);
+ getch ();
+}
+
+float cubo (float n)
+{ c = pow(n,3);
+  return c;
+}
+
+int menor_enteros (int x,int y)
+{if(x>y)
+{m = y;
+}
+else
+{m = x;
+}
+return m;
+}
+
+float potencia_reales(float b,float a)
+{p=1;
+ for(int i=0;i<a;i++)
+	p=p*b;
+	return p;
+}
+	
+
+
+
+
