@@ -1,0 +1,86 @@
+// resolucion_examen1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100
+
+void cargar_vector(int a[],int n);
+void cargar_vector2(int b[],int n);
+void ordenar_vector(int a[],int n);
+void ordenar_vector2(int a[],int n);
+void llenar_vector(int c[],int n);
+void mostrar_vector(int a[],int n);
+using namespace std;
+
+void main ()
+{int n,m,a[MAX],b[MAX],c[MAX];
+	do
+	{ cout<<"Cargar vector uno:";
+	  cin>>n;
+
+	  cout<<"Cargar vector dos:";
+	  cin>>m;
+
+	}while((n>0)&&(n<=100));
+
+	cargar_vector(a,n);
+	cargar_vector(a,n);
+
+}
+void cargar_vector(int a[],int n)
+{for(int i=0;i<n;i++)
+{cout<<"Ingrese el valor de a["<<i<<"]:";
+ cin>>a[i];
+}
+}
+void cargar_vector2(int b[],int n)
+{for(int i=0;i<n;i++)
+ {cout<<"Ingrese el valor de b["<<i<<"]:";
+  cin>>b[i];
+ }
+}
+
+void ordenar_vector(int a[],int n)
+{int j,aux;
+for(int i=0;i<n;i++)
+{j=i;
+ aux=a[i];
+  while((j>0)&&(aux<a[j-1]))
+  {a[j]=a[j-1];
+  j--;
+  }
+  a[j]=aux;
+}
+}
+void ordenar_vector2(int b[],int n)
+{int j,aux;
+for(int i=0;i<n;i++)
+{j=i;
+ aux=b[i];
+  while((j>0)&&(aux<b[j-1]))
+  {b[j]=b[j-1];
+  j--;
+  }
+  b[j]=aux;
+ }
+}
+
+
+void llenar_vector(int c[],int n)
+{for(int i=0;i<n;i++)
+ {if(a[i]>b[i])
+  {c[i]=b[i];
+  }
+ else
+ {c[i]=a[i];
+ } 
+}
+}
+void mostrar_vector(int c[],int n)
+{for(int i=0;i<n;i++)
+ {cout<<"El valor de c["<<i<<"]:";
+ cout<<c[i];
+}
+}
