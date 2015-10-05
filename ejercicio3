@@ -1,0 +1,72 @@
+// ejercicio3.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+#define MAXCOL 20
+#define MAXROW 20
+
+using namespace std;
+
+void cargar_matriz1(int a[MAXROW][MAXCOL],int n, int m);
+void cargar_matriz2(int b[MAXROW][MAXCOL],int n, int m);
+void suma_matriz(int a[MAXROW][MAXCOL],int b[MAXROW][MAXCOL],int n,int m,int c[MAXROW][MAXCOL]);
+void mostrar_matriz(int c[MAXROW][MAXCOL],int n,int m);
+
+void main()
+{ 
+	int n,m,a[MAXROW][MAXCOL],b[MAXROW][MAXCOL],c[MAXROW][MAXCOL];
+
+	do
+	{ 
+		cout<<"Ingrese el numero de filas: ";
+	    cin>>n;
+
+	}while((n>MAXROW)||(n<=0));
+
+	do
+	{  cout<<"Ingrese el numero de columnas: ";
+	   cin>>m;
+
+	}while((m>MAXCOL)||(m<=0));
+
+	cargar_matriz1(a,n,m);
+	cargar_matriz2(b,n,m);
+	suma_matriz(a,b,n,m,c);
+	mostrar_matriz(c,n,m);
+
+	getch();
+}
+void cargar_matriz1(int a[MAXROW][MAXCOL],int n, int m)
+{ for(int i=0;i<n;i++)
+   for(int j=0;j<m;j++)
+  {cout<<"mat1["<<i<<"]["<<j<<"]: ";
+   cin>>a[i][j];
+  }
+}
+
+void cargar_matriz2(int b[MAXROW][MAXCOL],int n, int m)
+{for(int i=0;i<n;i++)
+  for(int j=0;j<m;j++)
+  {cout<<"mat2["<<i<<"]["<<j<<"]: ";
+   cin>>b[i][j];
+  }
+}
+
+void suma_matriz(int a[MAXROW][MAXCOL],int b[MAXROW][MAXCOL],int n,int m,int c[MAXROW][MAXCOL])
+{ int suma = 0;
+for(int i=0;i<n;i++)
+ for(int j=0;j<m;j++)
+ { c[i][j] = a[i][j]+ b[i][j];
+ }
+}
+
+void mostrar_matriz(int c[MAXROW][MAXCOL],int n, int m)
+{ for(int i=0;i<n;i++)
+   for(int j=0;j<m;j++)
+   {cout<<"mat3["<<i<<"]["<<j<<"]:";
+    cout<<c[i][j]<<"\t";
+   }
+}
