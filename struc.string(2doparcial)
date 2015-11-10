@@ -1,0 +1,64 @@
+// resolucion2doparcial.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "conio.h"
+#define MAX 10
+
+using namespace std;
+
+struct telemento{
+	string vector[MAX];
+};
+
+void cargarvector(string a[],int n);
+void cargarmatriz(string a[], telemento matriz[MAX][MAX], int n);
+void mostrarmatriz(telemento matriz[MAX][MAX],int n);
+
+void main ()
+{int n;
+ string a[MAX];
+ telemento matriz[MAX][MAX];
+ do{
+ cout<<"Indicar el numero de n: ";
+ cin>>n;
+ }while((n>100)||(n<=0));
+ cin.ignore();
+ cargarvector(a,n);
+ cargarmatriz(a,matriz,n);
+ mostrarmatriz(matriz,n);
+
+ getch ();
+
+}
+
+void cargarvector(string a[],int n)
+{for(int i=0;i<n;i++)
+ { cout<<"Ingrese la cadena: ";
+   getline(cin,a[i]);
+ }
+}
+void mostrarmatriz(telemento matriz[MAX][MAX],int n)
+{for(int i=0;i<n;i++)
+  for(int j=0;j<n;j++)
+    for(int k=0;k<n;k++)
+	  cout<<"matriz["<<i<<"]["<<j<<"]:"<<matriz[i][j].vector[k]<<endl;
+}
+
+void cargarmatriz(string a[], telemento matriz[MAX][MAX], int n)
+{ int i,j,l,k,longi,z,f;
+  f=0;
+  for(int i=0;i<n;i++)
+  {longi=a[i].length();
+   longi=longi/n;
+   l=0;
+   for(int j=0;j<n;j++)
+
+    for(int k=0;k<n;k++)
+	{matriz[j][k].vector[l]=a[i].substr(f,longi);
+     l++;
+    }
+  }
+}
