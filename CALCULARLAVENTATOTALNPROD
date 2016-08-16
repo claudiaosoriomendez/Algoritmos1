@@ -1,0 +1,26 @@
+// calcular la venta total de n productos
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+
+void main(){
+	int p,c,n,a;
+	cout<<"Cuantos productos son: ";
+	cin>>n;
+	a=0;
+	for(int i=0;i<n;i++)
+	{
+	cout<<"Ingrese la cantidad de producto: ";
+	 cin>>c;
+	 cout<<"Ingrese el precio del producto: ";
+	 cin>>p;
+	 a=a + c*p;
+	}
+	cout<<"El total a pagar es: "<<a;
+	getch();
+}
