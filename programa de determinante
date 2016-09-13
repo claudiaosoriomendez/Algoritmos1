@@ -1,0 +1,64 @@
+// matricestrasnpuesta.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 30
+
+using namespace std;
+
+void cargar(int mat[MAX][MAX],int n,int m);
+//void inversa(int mat[MAX][MAX],int n,int m);
+int determinante(int mat[MAX][MAX],int n,int m);
+void mostrar(int mat[MAX][MAX],int n,int m);
+
+void main(){
+
+	int n,m,mat[MAX][MAX],det;
+	do{
+		cout<<"Ingrese el numero de filas y columnas: ";
+		cin>>n;
+		cin>>m;
+	}while((n<=0)||(n>MAX));
+
+	cargar(mat,n,m);
+	det = determinante(mat,n,m);
+	if(det<=0){
+		cout<<"No existe matriz inversa";
+	}
+	//inversa(mat,n,m);
+	mostrar(mat,n,m);
+
+
+getch();
+}
+void cargar(int mat[MAX][MAX],int n,int m){
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++){
+			cout<<"Ingrese el valor de ["<<i<<"]["<<j<<"]= ";
+		    cin>>mat[i][j];
+	}
+}
+}
+int determinante(int mat[MAX][MAX],int n,int m){
+	int l, i,j,det;
+det=mat[1][1];
+	for(int k=0;k<m;k++){
+		 l=i+1;
+		for(int i=l;i<n;i++){
+		 for(int j=l;j<n;j++)
+			 mat[i][j]=(mat[k][k]*mat[i][j]-mat[k][j]*mat[i][k])/mat[k][k];
+		}
+		det=det*mat[k+1][k+1];
+	}
+	return (det);
+}
+
+void mostrar(int mat[MAX][MAX],int n,int m){
+	for(int i=0;i<n;i++){
+		for(int j=0;j<m;j++)
+			cout<<"Ingrese el valor de ["<<i<<"]["<<j<<"]= "<<mat[i][j];
+	
+	}
+}
